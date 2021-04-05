@@ -60,9 +60,10 @@ Create a cron job that runs every minute as shown below
 ```
 
 ### Webhook
-Set your webhook to POST to https://<host>/<path>/ or https://<host>/<path>/index.php with 
-the ***project-name*** configured above as a query parameter. For our sub-domain example this 
-would look like `https://deploy.example.com/?project=project-name` or 
+Set your webhook to POST to _https://\<host\>/\<path\>/?project=\<project-name\>_ or 
+_https://\<host\>/\<path\>/index.php?project=\<project-name\>_ with the ***project-name*** 
+configured above as a query parameter. For our sub-domain example this would look like 
+`https://deploy.example.com/?project=project-name` or 
 `https://deploy.example.com/index.php?project=project-name` while our nested endpoint example 
 would be `https://www.example.com/deploy/?project=project-name-2` or 
 `https://www.example.com/deploy/index.php?project=project-name-2`
