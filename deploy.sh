@@ -26,5 +26,7 @@ for _LOCK_FILE in *.lock; do
         _REPOSITORY_BRANCH=`node -e "process.stdout.write((require('./config.json')['$_PROJECT'] || {}).branch)"`
         _REPOSITORY_ROOT=`node -e "process.stdout.write((require('./config.json')['$_PROJECT'] || {}).repository)"`
         $_UAPI_BIN VersionControl update branch=$_REPOSITORY_BRANCH repository_root=$_REPOSITORY_ROOT
+        $_UAPI_BIN VersionControlDeployment create repository_root=$_REPOSITORY_ROOT
+        rm $_LOCK_FILE
     fi
 done
