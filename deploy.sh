@@ -21,11 +21,10 @@ _UAPI_BIN=`which uapi`
 cd `dirname $0`
 
 for _LOCK_FILE in *.lock; do
-    if [ -f _LOCK_FILE ]; then
+    if [ -f $_LOCK_FILE ]; then
         _PROJECT=${_LOCK_FILE%.lock}
         _REPOSITORY_BRANCH=`node -e "process.stdout.write((require('./config.json')['$_PROJECT'] || {}).branch)"`
         _REPOSITORY_ROOT=`node -e "process.stdout.write((require('./config.json')['$_PROJECT'] || {}).repository)"`
         $_UAPI_BIN VersionControl update branch=$_REPOSITORY_BRANCH repository_root=$_REPOSITORY_ROOT
-        $_UAPI_BIN VersionControlDeployment create repository_root=$_REPOSITORY_ROOT
     fi
 done
